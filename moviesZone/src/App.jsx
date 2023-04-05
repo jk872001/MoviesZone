@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { fetchDataFromApi } from "./utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import { getConfiguration } from "./Redux/slices/homeSlice";
-import { BrowserRouter,Route,Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import SearchResults from "./pages/SearchResults/SearchResults.jsx";
-Home
+import Header from "./components/Header/Header";
+Home;
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -20,10 +21,11 @@ function App() {
   };
   return (
     <BrowserRouter>
-    <Routes>
-    <Route path="/" element={<Home/>}/>
-    <Route path="/search/:query" element={<SearchResults/>}/>
-    </Routes>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/search/:query" element={<SearchResults />} />
+      </Routes>
     </BrowserRouter>
   );
 }
